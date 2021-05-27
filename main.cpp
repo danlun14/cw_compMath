@@ -6,7 +6,7 @@
 
 using namespace std;
 
-double eps = 1e-1;
+double eps = 1e-4;
 
 double diff(double x, double y, double D1, double D2)
 {
@@ -66,8 +66,8 @@ double *f(double x, double *y)
         }
         else
         {
-            b++;
-            a--;
+            b += eps;
+            a -= eps;
         }
     }
 
@@ -409,7 +409,7 @@ int main()
     double x0 = 0.0;
     double y0 = 3.0;
     double x1 = 1.0;
-    double y1 = 4.0;
+    double y1 = 3.0;
 
     double D1 = dbl_count_D1(x0, x1, y0, y1, h, 1e-3);
     printf("D1 = %.3lf\n", D1);
